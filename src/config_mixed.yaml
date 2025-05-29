@@ -1,0 +1,40 @@
+program: cli_hpo_mrvm_national_mixed_v2.py
+method: random
+metric:
+  name: val_r2c_G
+  goal: maximize
+parameters:
+  batch_size_dq:
+    values: [1]
+  batch_size_vq:
+    values: [1, 5, 10]  # 1 
+  epochs:
+    values: [40, 100, 200, 500, 1000] # 1000 
+  cached_solution_frequency:
+    values: [5, 10, 20]
+  learning_rate:
+    values: [0.01, 0.005, 0.001, 0.0005, 0.0001] # 0.005
+  l2_reg:
+    values: [1e-6, 1e-5, 1e-4, 1e-3, 1e-2]   # 1e-4
+  loss_vq: 
+    values: ["mse", "mae"]  # mse 
+  num_hidden_layers:
+    values: [1, 2, 3]     # 1 
+  num_hidden_units:
+    values: [10, 20, 30]   # 20 
+  max_linear_prices_multiplier:
+    values: [3] #NOTE: this is for the random price vector generation, used to be 3 in all domains other than MRVM, where it is 5 for the national bidder and 50 for the other 2
+  price_file_name:
+    values: ["values_for_null_price_seeds1-100"]
+  use_gradient_clipping:
+    values: [False, True]    # false 
+  dropout_prob:
+    values: [0.0]
+  lin_skip_connection:
+    values: [True, False]    # false 
+  scale_multiplier: 
+    values: [1]  #NOTE: [1, 1.5, 2, 4] for MRVM, only affects dynamic scaling. 
+command:
+  - ${interpreter}
+  - ${program}
+  - ${args}

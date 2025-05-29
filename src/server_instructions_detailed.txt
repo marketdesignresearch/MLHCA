@@ -1,0 +1,56 @@
+SLURM CLUSTER SETUP PYTHON: 6/03/2022 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1.Login with your ifi credentials and password to slurm.ifi.uzh.ch
+              ssh <username>@slurm.ifi.uzh.ch
+2. install anaconda (if not already installed): 
+        To check if it is already installed: conda --version
+3. Create a virtual environment for python 3.8
+        conda create -n <environment name> python=3.8
+    You can activate your environment <name> by running:
+        source ~/<name>/bin/activate
+              
+        After activating check:
+              
+        which python3
+        which pip3
+             
+4. Install Cplex (if needed) on the cluster: (CPLEX 20.10 recommended)
+    i.Download Linux-CPLEX installer from the dropbox link provided by Sven 
+    ii.Upload the downloaded folder to the cluster in your home directory and run the binary file (if permission denied, check properties of file and mark the checkbox X for execute)
+         ./<filename>.bin
+    iii. Take note of where the relevant libraries are located. During installation, you will be prompted about this. 
+    
+    iv.(If you only want a fresh environment and cplex is already installed: start here with iii.) Navigate to the setup.py located in cplex<yourVersion>/python/setup.py file and run
+        
+        conda activate <environment name>
+    v. See: https://www.ibm.com/support/knowledgecenter/SSSA5P_12.7.1/ilog.odms.cplex.help/CPLEX/GettingStarted/topics/set_up/Python_setup.html
+    vi. ATTENTION: The installers of cplex 12.9 and cplex 12.8 have a common bug (cplex 12.10 works fine):
+              
+    When you enter the directory where you want to install e.g. /home/user/weissteiner/CPLEX_Studio129, the installer then does not check the available disk space at the entered location but instead in the default location which is given by: /opt/ibm/ILOG/CPLEX_Studio129
+    As it happens there is now also a /opt directory on lucy which. So the installer checks the available disk space of this /opt directory on lucy even though you entered a different location. If it now happens that the /opt directoy on luca has not enough space you cannot            install cplex also not in your entered directory even though you would have in theory in /home/user/weissteiner/CPLEX_Studio129 260GB free availabale disk space.
+
+6. Set the environment variables for your new conda environment to properly point to your CPLEX installation. For example, in my case: 
+    conda env config vars set PYJNIUS_CLASSPATH=/home/user/<username>/MLCA_DQ/src/lib         (the folder that contains the sats.jar (and the cplex jar))
+    conda env config vars set LD_LIBRARY_PATH=/home/user/<username>/CPLEX_Studio201/cplex/bin/x86-64_linux   (your specific cplex version and install location)
+
+    Alternatively, set them globally with 6b: 
+
+6b. Upload a java/jdk on the cluster
+    i. Set path variables in .zshrc on the cluster to the jdk: in .zshrc
+            
+        vim ~/.zshrc (open the zshell file)
+       This should contain these lines:
+        export PATH=$PATH:~/java/jdk-11/bin                        (your specific jdk version)
+        export JAVA_HOME=~/java/jdk-11                             (your specific jdk version)
+        export LD_LIBRARY_PATH=~/CPLEX_Studio1210/cplex/bin/x86-64_linux       (your specific cplex version)
+
+7. Install the Java jdk: 
+        conda install -c anaconda openjdk
+
+
+8. Install your desired packages via pip or pip3 on the cluster by saving them into a requirements.txt file with <PACKAGE>==<version> (e.g. pandas==0.25.3) per line and run
+        pip3 install -r requirements.txt
+   If you use the Python-Java Bridge developed by Fabio, for me it only works with jnius==1.2.0. When using jnius==1.3.0.
+   I always got error for the SATS MIP in MRVM when using jnius==1.3.0, for whatever reason!!
+
+9. copy test_pyenvs from ~/weissteiner/test_pyenvs change paths in launch_simulation.sh and run test.py (checks tensorflow, cplex and pysats)

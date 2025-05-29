@@ -1,0 +1,32 @@
+{
+    "LSVM":{
+        "Regional": {"num_hidden_layers": 1, "num_hidden_units": 20, "lin_skip_connection": false, "learning_rate": 0.001, "l2_reg": 0.000001, "max_linear_prices_multiplier": 3, 
+        "epochs": 100, "loss_vq": "mae", "cached_solution_frequency": 20, "use_gradient_clipping": true, "batch_size_vq": 1},
+        "National": {"num_hidden_layers": 1, "num_hidden_units": 30, "lin_skip_connection": true, "learning_rate": 0.0001, "l2_reg": 0.001, "max_linear_prices_multiplier": 3, 
+        "epochs": 1000, "loss_vq": "mae", "cached_solution_frequency": 10, "use_gradient_clipping": true, "batch_size_vq": 5}
+    },
+    "GSVM":{
+        "Regional": {"num_hidden_layers": 2, "num_hidden_units": 30, "lin_skip_connection": true, "learning_rate": 0.0001, "l2_reg": 0.001, "max_linear_prices_multiplier": 3, 
+        "epochs": 1000, "loss_vq": "mae", "cached_solution_frequency": 10, "use_gradient_clipping": false, "batch_size_vq": 5},
+        "National": {"num_hidden_layers": 2, "num_hidden_units": 30, "lin_skip_connection": false, "learning_rate": 0.0005, "l2_reg": 0.0001, "max_linear_prices_multiplier": 3, 
+        "epochs": 200, "loss_vq": "mae", "cached_solution_frequency": 10, "use_gradient_clipping": false, "batch_size_vq": 1}
+    },
+    "MRVM":{
+        "Local": {"num_hidden_layers": 3, "num_hidden_units": 20, "lin_skip_connection": true, "learning_rate": 0.0005, "l2_reg": 0.00001, "max_linear_prices_multiplier": 3, 
+            "epochs": 500, "loss_vq": "mae", "cached_solution_frequency": 10, "use_gradient_clipping": false, "batch_size_vq": 1},
+        "Regional": {"num_hidden_layers": 1, "num_hidden_units": 30, "lin_skip_connection": true, "learning_rate": 0.0001, "l2_reg": 0.0001, "max_linear_prices_multiplier": 3, 
+            "epochs": 1500, "loss_vq": "mse", "cached_solution_frequency": 10, "use_gradient_clipping": false, "batch_size_vq": 5},
+        "National": {"num_hidden_layers": 3, "num_hidden_units": 30, "lin_skip_connection": false, "learning_rate": 0.001, "l2_reg": 0.000001, "max_linear_prices_multiplier": 3, 
+            "epochs": 200, "loss_vq": "mae", "cached_solution_frequency": 10, "use_gradient_clipping": true, "batch_size_vq": 10}
+    },
+    "SRVM":{
+        "Regional": {"num_hidden_layers": 1, "num_hidden_units": 30, "lin_skip_connection": false, "learning_rate": 0.005, "l2_reg": 0.000001, "max_linear_prices_multiplier": 3, 
+            "epochs": 500, "loss_vq": "mae", "cached_solution_frequency": 5, "use_gradient_clipping": true, "batch_size_vq": 1},
+        "Local": {"num_hidden_layers": 1, "num_hidden_units": 1000, "lin_skip_connection": true, "learning_rate": 0.01, "l2_reg": 0.0001, "max_linear_prices_multiplier": 3, 
+            "epochs": 10, "loss_vq": "mse", "cached_solution_frequency": 5, "use_gradient_clipping": true, "batch_size_vq": 1},
+        "High Frequency": {"num_hidden_layers": 1, "num_hidden_units": 10, "lin_skip_connection": true, "learning_rate": 0.005, "l2_reg": 0.00001, "max_linear_prices_multiplier": 3, 
+            "epochs": 500, "loss_vq": "mse", "cached_solution_frequency": 10, "use_gradient_clipping": true, "batch_size_vq": 5},
+        "National": {"num_hidden_layers": 1, "num_hidden_units": 10, "lin_skip_connection": true, "learning_rate": 0.005, "l2_reg": 0.00001, "max_linear_prices_multiplier": 3, 
+            "epochs": 1000, "loss_vq": "mae", "cached_solution_frequency": 5, "use_gradient_clipping": false, "batch_size_vq": 10}
+    }
+}
