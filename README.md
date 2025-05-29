@@ -1,7 +1,7 @@
 # Prices, Bids, Values: One ML-Powered Combinatorial Auction to Rule Them All
 
 
-This is a piece of software used for computing the efficiency of the MLHNCA, ML-CCA and the CCA in the spectrum auction test suite (SATS). The proposed MLHCA is described in detail in the following paper:
+This is a piece of software used for computing the efficiency of the MLHCA, ML-CCA and the CCA in the spectrum auction test suite (SATS). The proposed MLHCA is described in detail in the following paper:
 
 **Prices, Bids, Values: One ML-Powered Combinatorial Auction to Rule Them All**<br/>
 Ermis Soumalias*, Jakob Heiss*, Jakob Weissteiner,  and Sven Seuken.<br/>
@@ -89,7 +89,7 @@ python3 sim_mlca_dq.py --domain GSVM --seed 157 --new_query_option cca
 
 
 
-By changing the dictionary parameters in the sim_mlca_dq_hybrid.py file, one can change various settings of the mechanism, such as the whether to use weights and biases tracking, the reserve prices, the mMVNN hyperparameters and the hyperparamters for next price vector generation. The default values are set to those that we used for our experiments. For all of those hyperparameters in the code, the comments contain a #NOTE specifycing in which hyparparameter in the paper description they correspond to. 
+By changing the dictionary parameters in the sim_mlca_dq_hybrid.py file, one can change various settings of the mechanism, such as the whether to use weights and biases tracking, the reserve prices, the mMVNN hyperparameters and the hyperparamters for next price vector generation. The default values are set to those that we used for our experiments. For all of those hyperparameters in the code, the comments contain a #NOTE specifycing in which hyparparameter in the paper they correspond to. 
 The most convenient way of tracking results is WANDB tracking. 
 The main plots to look at would be: Efficiency using "Number of Elicited Bids" as a step metric. This plot corresponds to the main efficiency results that we report in the paper. 
 
