@@ -31,7 +31,7 @@ Full paper version including appendix: [[pdf](http://arxiv.org/abs/2308.10226)]
 
 ## Dependencies
 
-Prepare your python environment <name_of_your_environment> (whether you do that with `conda`, `virtualenv`, etc.) and activate this environment. Then install the required packages as provided in the requirements.txt
+Prepare your python environment <name_of_your_environment> (whether you do that with `conda`, `virtualenv`, etc.) and activate this environment. Then, install the required packages as provided in the requirements.txt
 
 Using pip:
 ```bash
@@ -45,7 +45,7 @@ Install the CPLEX Python API as described [here](https://www.ibm.com/docs/en/ico
 
 Concretely, activate your previously created environment <name_of_your_environment>. 
 
-Then locate your cplex home directory and run the file setup.py that is located in <your_CPLEX_home_directory>\IBM\ILOG\CPLEX_Studio201\python (if access is denied you need to run as admin):
+Then locate your cplex home directory and run the file setup.py that is located in <your_CPLEX_home_directory>\IBM\ILOG\CPLEX_Studio201\python (if access is denied, you need to run as admin):
 
 ```bash
 $ python setup.py install
@@ -89,7 +89,7 @@ python3 sim_mlca_dq.py --domain GSVM --seed 157 --new_query_option cca
 
 
 
-By changing the dictionary parameters in the sim_mlca_dq_hybrid.py file, one can change various settings of the mechanism, such as the whether to use weights and biases tracking, the reserve prices, the mMVNN hyperparameters and the hyperparamters for next price vector generation. The default values are set to those that we used for our experiments. For all of those hyperparameters in the code, the comments contain a #NOTE specifycing in which hyparparameter in the paper they correspond to. 
+By changing the dictionary parameters in the sim_mlca_dq_hybrid.py file, one can change various settings of the mechanism, such as whether to use weights and biases tracking, the reserve prices, the mMVNN hyperparameters, and the hyperparameters for next price vector generation. The default values are set to those that we used for our experiments. For all of those hyperparameters in the code, the comments contain a `#NOTE` specifying which hyperparameter in the paper they correspond to. 
 The most convenient way of tracking results is WANDB tracking. 
 The main plots to look at would be: Efficiency using "Number of Elicited Bids" as a step metric. This plot corresponds to the main efficiency results that we report in the paper. 
 
