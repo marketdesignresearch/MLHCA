@@ -5,8 +5,10 @@ This is a piece of software used for computing the efficiency of the MLHCA, ML-C
 
 **Prices, Bids, Values: One ML-Powered Combinatorial Auction to Rule Them All**<br/>
 Ermis Soumalias*, Jakob Heiss*, Jakob Weissteiner,  and Sven Seuken.<br/>
-*Forthcoming in [ICML 2025 (Spotlight)](https://icml.cc/)*  
-Full paper version including appendix: [[pdf](http://arxiv.org/abs/2308.10226)]
+*[ICML 2025 (Oral)](https://icml.cc/virtual/2025/poster/46478)*  
+Full paper version including appendix: [[pdf](http://arxiv.org/abs/2308.10226)]<br/>
+Short video-abstract: [[video](https://youtu.be/poJ46-YB2kM)]
+[![Watch the video](https://img.youtube.com/vi/poJ46-YB2kM/maxresdefault.jpg)](https://youtu.be/poJ46-YB2kM)
 
 
 The proposed ML-CCA is described in detail in the following paper:
